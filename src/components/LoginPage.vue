@@ -18,3 +18,36 @@
       </div>
     </div>
   </template>
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      email: '',
+      password: '',
+      errors: null
+    };
+  },
+  methods: {
+    async loginUser() {
+      try {
+        const response = await axios.post(this.$root.$data.apiUrl + '/login', {
+          email: this.email,
+          password: this.password
+        });
+        if (response.status === 201) {
+          localStorage.setItem('token', response.data.token);
+          this.$router.push('/home');
+        }
+      } catch (error) {
+        this.errors = error.response.data.message;
+      }
+    },
+    clearErrors() { 
+      this.errors = null;
+    }
+
+  }
+};
+</script>
