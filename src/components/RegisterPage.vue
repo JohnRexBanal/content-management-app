@@ -21,4 +21,20 @@
     </div>
   </template>
 
+<script>
+
+import axios from 'axios';
+export default {
+  data() {
+    return {
+      name: '',
+      email: '',
+      password: '',
+      confirm: '',
+      errors: {}
+    };
+  },
+};
+
+</script>
   
