@@ -28,6 +28,24 @@ import axios from 'axios';
         product: null,
       };
     },
+    methods: {
+      async fetchProduct(id) {
+        try {
+          const response = await axios.get(`${this.$root.$data.apiUrl}/view/${id}`, {
+            headers: {
+              Authorization: `Bearer ${localStorage.getItem('token')}`
+            }
+          });
+          this.product = response.data;
+        } catch (error) {
+          console.error('Error fetching product:', error);
+        }
+      }
+    },
+    mounted() {
+      const productId = this.$route.params.id;
+      this.fetchProduct(productId);
+    }
   }
 
 
