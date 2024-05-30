@@ -34,6 +34,34 @@ export default {
       errors: {}
     };
   },
+  methods: {
+    async registerUser() {
+        try {
+        // Call the register API endpoint using Axios
+        // the /register is an API route that define in the backend using Laravel
+        const response = await axios.post(this.$root.$data.apiUrl + '/register', {
+          name: this.name,
+          email: this.email,
+          password: this.password,
+          password_confirmation: this.confirm
+        });
+        if (response.status === 201) {
+            // After successful registration, handle redirection or other actions
+            // Clear the form fields after successful registration
+            this.name = '';
+            this.email = '';
+            this.password = '';
+            this.confirm = '';
+            alert('Registration successful');
+            // Redirect to the login page
+            this.$router.push('/');
+        }
+      } catch (error) {
+          // Handle registration error, show error message to the user
+        this.errors = error.response.data.errors;
+      }
+    },
+ }
 };
 
 </script>
