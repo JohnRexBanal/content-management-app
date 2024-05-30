@@ -16,3 +16,21 @@
       </div>
     </div>
   </template>
+
+<script>
+
+import axios from 'axios';
+  
+  export default {
+    name: 'ViewProduct',
+    data() {
+      return {
+        product: null,
+      };
+    },
+  }
+
+
+</script>
+
+
