@@ -61,6 +61,12 @@ export default {
         this.errors = error.response.data.errors;
       }
     },
+    //the field param is the name of the input field that triggered the error
+    clearErrors(field) {
+      // Clear error message for the specified field
+      // this method is called when the user types in the input field triggering the event handler 
+      this.errors[field] = null;
+    }
  }
 };
 
