@@ -13,11 +13,6 @@
           <button type="submit" class="btn btn-primary mt-3 w-100">Login</button>
         </form>
         </div>
-      <div class="row">
-        <div class="col-12">
-            <p class="mt-3 text-left">Don't have an account? <router-link to="/register">Register here!</router-link></p>
-        </div>
-      </div>
     </div>
   </template>
 <script>
@@ -40,6 +35,7 @@ export default {
         });
         if (response.status === 201) {
           localStorage.setItem('token', response.data.token);
+          localStorage.setItem('user', JSON.stringify(response.data.user));
           this.$router.push('/home');
         }
       } catch (error) {
