@@ -7,10 +7,15 @@ import ProductList from "@/components/ProductList.vue";
 import ViewProduct from "@/components/ViewProduct.vue";
 import UpdateProduct from "@/components/UpdateProduct.vue";
 import CreateProduct from "@/components/CreateProduct.vue";
+import UserList from "@/components/UserList.vue";
+import ViewUser from "@/components/ViewUser.vue";
+import UpdateUser from "@/components/UpdateUser.vue";
 
 const routes = [
   { path: "/", component: LoginPage, name: "login" },
   { path: "/register", component: RegisterPage, name: "register" },
+
+  // Product routes
   {
     path: "/home",
     component: MainPage,
@@ -71,7 +76,15 @@ const routes = [
             next('/')
           }
         }
-        }
+        },
+
+
+  // User routes
+
+  { path: "/userList", component: UserList, name: "userList" },
+  { path: "/viewUser/:id", component: ViewUser, name: "viewUser" },
+  { path: "/updateUser/:id", component: UpdateUser, name: "updateUser" },
+
 ];
 
 const router = createRouter({
