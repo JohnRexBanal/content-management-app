@@ -16,13 +16,13 @@
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link to="/home" class="nav-link active" aria-current="page" href="#">Home</router-link>
+            <router-link to="/home" class="nav-link active" aria-current="page">Home</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/products" class="nav-link" href="#">Manage Product</router-link>
+            <router-link to="/products" class="nav-link">Manage Product</router-link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Manage User</a>
+          <li v-if="isAdmin" class="nav-item">
+            <router-link to="/userList" class="nav-link">Manage User</router-link>
           </li>
         </ul>
         <ul class="navbar-nav">
@@ -41,6 +41,13 @@ import axios from 'axios';
 export default {
   name: 'NavBar',
 
+  computed: {
+    isAdmin() {
+      const user = JSON.parse(localStorage.getItem('user'));
+      return user && user.is_admin;
+
+    }
+  },
   methods: {
     async logout() {
       try {

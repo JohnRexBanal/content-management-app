@@ -88,7 +88,7 @@ export default {
       try {
         const token = localStorage.getItem("token");
         const response = await axios.get(
-          this.$root.$data.apiUrl + "/products",
+          this.$root.$data.apiUrl + "/products/products",
           {
             headers: {
               Authorization: `Bearer ${token}`,
@@ -108,7 +108,7 @@ export default {
     async deleteProduct(id) {
       if (confirm("Are you sure you want to delete this product?")) {
         try {
-          await axios.delete(`${this.$root.$data.apiUrl}/delete/${id}`, {
+          await axios.delete(`${this.$root.$data.apiUrl}/products/delete/${id}`, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem("token")}`,
             },

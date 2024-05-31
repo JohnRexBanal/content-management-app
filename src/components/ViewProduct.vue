@@ -31,7 +31,7 @@ import axios from 'axios';
     methods: {
       async fetchProduct(id) {
         try {
-          const response = await axios.get(`${this.$root.$data.apiUrl}/view/${id}`, {
+          const response = await axios.get(`${this.$root.$data.apiUrl}/products/view/${id}`, {
             headers: {
               Authorization: `Bearer ${localStorage.getItem('token')}`
             }

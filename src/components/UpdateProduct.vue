@@ -68,7 +68,7 @@ export default {
     methods: {
         async fetchProduct(id) {
             try {
-                const response = await axios.get(`${this.$root.$data.apiUrl}/edit/${id}`, {
+                const response = await axios.get(`${this.$root.$data.apiUrl}/products/edit/${id}`, {
                     headers: {
                         Authorization: `Bearer ${localStorage.getItem('token')}`
                     }
@@ -87,7 +87,7 @@ export default {
 
         async updateProduct() {
             try {
-                const response = await axios.put(`${this.$root.$data.apiUrl}/update/${this.id}`, {
+                const response = await axios.put(`${this.$root.$data.apiUrl}/products/update/${this.id}`, {
                     name: this.name,
                     description: this.description,
                     price: this.price,

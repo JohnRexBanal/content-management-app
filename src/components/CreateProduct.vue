@@ -58,7 +58,7 @@
     methods: {
       async addProduct() {
         try {
-          const response = await axios.post(this.$root.$data.apiUrl + '/create', {
+          const response = await axios.post(this.$root.$data.apiUrl + '/products/create', {
             name: this.name,
             description: this.description,
             price: this.price,

@@ -54,7 +54,7 @@ export default {
             this.confirm = '';
             alert('Registration successful');
             // Redirect to the login page
-            this.$router.push('/');
+            this.$router.push('/userList');
         }
       } catch (error) {
           // Handle registration error, show error message to the user
